@@ -1,3 +1,5 @@
+.ebextensions script for automatically installing letsencrypt SSL with Webroot mode on an Elastic Beanstalk single instance running Nginx
+
 (!) Based on : https://gist.github.com/tony-gutierrez/198988c34e020af0192bab543d35a62a
 
 # STEP 0 :
