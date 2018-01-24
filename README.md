@@ -1,3 +1,5 @@
+(!) Based on : https://gist.github.com/tony-gutierrez/198988c34e020af0192bab543d35a62a
+
 # STEP 0 :
 Opened up port 443 in your EC2 instance Security Group.
 
