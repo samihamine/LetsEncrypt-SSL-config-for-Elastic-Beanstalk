@@ -25,7 +25,7 @@ files:
         return 301 https://$host$request_uri;
       }
   # Allow verification to perform the challenge
-  /etc/nginx/conf.d/Allow_LetsEncrypt_verification.conf:
+  /etc/nginx/conf.d/allow_LetsEncrypt_verification.conf:
     mode: "000644"
     owner: root
     group: root
@@ -36,7 +36,6 @@ files:
             root /var/www/acme-challenge/;
         }
       }    
-      
   # The Nginx config forces https, and is meant as an example only. 
   /etc/nginx/conf.d/https_custom.pre:
     mode: "000644"
@@ -83,7 +82,7 @@ container_commands:
   20_createwebrootpath:
     command: "sudo mkdir /var/www/acme-challenge/"  
   30_getcertwebrootmode:
-    command: "sudo ./certbot-auto certonly --debug --non-interactive --email ${EMAIL} --authenticator webroot --webroot-path /var/www/acme-challenge --domains ${CERTDOMAIN} --keep-until-expiring --installer nginx"
+    command: "sudo ./certbot-auto certonly --debug --non-interactive --email ${EMAIL} --agree-tos --authenticator webroot --webroot-path /var/www/acme-challenge --domains ${CERTDOMAIN} --keep-until-expiring --installer nginx"
   40_link:
     command: "sudo ln -sf /etc/letsencrypt/live/${CERTDOMAIN} /etc/letsencrypt/live/ebcert"
   50_config:
